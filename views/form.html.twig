@@ -2,23 +2,21 @@
 <html>
 <head>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-    <title>Generate some ping pong!</title>
+    <title>Chess</title>
 </head>
 <body>
     <div class='container'>
         <h1>Chess Move Evaluator</h1>
         <p>Enter the Queen Position</p>
-        <form action='/display_pingpong'>
+        <form action='/display_chess_piece' method="get">
+
+            <h2>Choose Chess piece</h2>
+            <select name='piece'>
+                <option value='queen'>Queen</option>
+                <option value='rook'>Rook</option>
+            </select>
+
             <!-- Queen -->
-            <div class='form-group'>
-              <label for='queen-x'>queen-x:</label>
-              <input id='queen-x' name='queen-x' class='form-control' type='number'>
-            </div>
-            <div class='form-group'>
-              <label for='queen-y'>queen-y:</label>
-              <input id='queen-y' name='queen-y' class='form-control' type='number'>
-            </div>
-            <!-- Opponent -->
             <div class='form-group'>
               <label for='piece-x'>piece-x:</label>
               <input id='piece-x' name='piece-x' class='form-control' type='number'>
@@ -26,6 +24,15 @@
             <div class='form-group'>
               <label for='piece-y'>piece-y:</label>
               <input id='piece-y' name='piece-y' class='form-control' type='number'>
+            </div>
+            <!-- Opponent -->
+            <div class='form-group'>
+              <label for='op_piece-x'>op_piece-x:</label>
+              <input id='op-piece-x' name='op-piece-x' class='form-control' type='number'>
+            </div>
+            <div class='form-group'>
+              <label for='op-piece-y'>op-piece-y:</label>
+              <input id='op-piece-y' name='op-piece-y' class='form-control' type='number'>
             </div>
             <button type='submit' class='btn-success'>Compute</button>
         </form>

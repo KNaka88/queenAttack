@@ -3,6 +3,7 @@
     date_default_timezone_set("America/Los_Angeles");
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Queen.php";
+    require_once __DIR__."/../src/Rook.php";
 
     $app = new Silex\Application();
 
@@ -16,6 +17,29 @@
         return $app['twig']->render('form.html.twig');
     });
 
+    $app->get("/display_chess_piece", function() use ($app) {
+
+        $chessType = $_GET['piece'];
+
+
+        $op_piece_x = $_GET['op-piece-x'];
+        $op_piece_y = $_GET['op-piece-y'];
+
+
+
+        switch($chessType){
+            case "rook":
+                $new_piece = new Rook($_GET['piece-x'], $_GET['piece-y']);
+                break;
+            case "queen":
+                $new_piece = new Queen($_GET['piece-x'], $_GET['piece-y']);
+                break;
+            default:
+                echo "Error";
+        }
+
+        return $app['twig']->render('display_chess_eval.html.twig', array("result" => $new_piece->canAttack($op_piece_x, $op_piece_y)));
+    });
 
 
 
