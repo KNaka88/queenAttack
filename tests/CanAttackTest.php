@@ -1,6 +1,7 @@
 <?php
 
     require_once "src/Queen.php";
+    require_once "src/Rook.php";
 
     class CanAttack_test extends PHPUnit_Framework_TestCase
     {
@@ -94,6 +95,43 @@
             $this->assertEquals(true, $result);
 
         }
+
+        // Rook tests
+        function test_rook_horizontal()
+        {
+            //Arrange
+            $rook_x = 1;
+            $rook_y = 4;
+            $piece_x = 3;
+            $piece_y = 4;
+            $test_canAttack = new Rook($rook_x, $rook_y);
+
+
+            //Act
+            $result = $test_canAttack->canAttack($piece_x, $piece_y);
+
+            //Assert
+            $this->assertEquals(true, $result);
+
+        }
+        function test_rook_vertical()
+        {
+            //Arrange
+            $rook_x = 1;
+            $rook_y = 4;
+            $piece_x = 1;
+            $piece_y = 8;
+            $test_canAttack = new Rook($rook_x, $rook_y);
+
+
+            //Act
+            $result = $test_canAttack->canAttack($piece_x, $piece_y);
+
+            //Assert
+            $this->assertEquals(true, $result);
+
+        }
+
 
 
     }
