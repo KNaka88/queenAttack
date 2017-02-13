@@ -32,6 +32,8 @@
         {
             if($this->x == $x){
                 return true;
+            }elseif($this->y == $y){
+                return true;
             }else {
                 return false;
             }
