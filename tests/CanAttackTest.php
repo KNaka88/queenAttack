@@ -53,13 +53,47 @@
         }
 
 
-        // 
+        //
         // //test3: diagonal
-        // function test_diagonal()
-        // {
-        //
-        //
-        // }
+        // If a queen piece and an opposing piece are diagonal of one space, the queen is able to attack.
+        // input->queen(2,2), piece(3,3) output->"attack successful"
+        function test_diagonal()
+        {
+            //Arrange
+            $queen_x = 2;
+            $queen_y = 2;
+            $piece_x = 3;
+            $piece_y = 3;
+            $test_canAttack = new Queen($queen_x, $queen_y);
+
+
+            //Act
+            $result = $test_canAttack->canAttack($piece_x, $piece_y);
+
+            //Assert
+            $this->assertEquals(true, $result);
+
+        }
+        // //test4: diagonal more than 1
+        // If a queen piece and an opposing piece are diagonal of more than one space, the queen is able to attack.
+        // input->queen(2,2), piece(4,4) output->"attack successful"
+        function test_diagonal_more()
+        {
+            //Arrange
+            $queen_x = 2;
+            $queen_y = 2;
+            $piece_x = 4;
+            $piece_y = 4;
+            $test_canAttack = new Queen($queen_x, $queen_y);
+
+
+            //Act
+            $result = $test_canAttack->canAttack($piece_x, $piece_y);
+
+            //Assert
+            $this->assertEquals(true, $result);
+
+        }
 
 
     }

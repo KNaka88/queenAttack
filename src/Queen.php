@@ -30,9 +30,12 @@
 
         function canAttack($x, $y)
         {
+            $diff = $this->x - $x;
             if($this->x == $x){
                 return true;
             }elseif($this->y == $y){
+                return true;
+            }elseif(($this->x + $diff == $x|| $this->x - $diff == $x) && ($this->y + $diff == $y || $this->y - $diff == $y)){
                 return true;
             }else {
                 return false;
