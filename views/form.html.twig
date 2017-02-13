@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <title>Generate some ping pong!</title>
+</head>
+<body>
+    <div class='container'>
+        <h1>Chess Move Evaluator</h1>
+        <p>Enter the Queen Position</p>
+        <form action='/display_pingpong'>
+            <!-- Queen -->
+            <div class='form-group'>
+              <label for='queen-x'>queen-x:</label>
+              <input id='queen-x' name='queen-x' class='form-control' type='number'>
+            </div>
+            <div class='form-group'>
+              <label for='queen-y'>queen-y:</label>
+              <input id='queen-y' name='queen-y' class='form-control' type='number'>
+            </div>
+            <!-- Opponent -->
+            <div class='form-group'>
+              <label for='piece-x'>piece-x:</label>
+              <input id='piece-x' name='piece-x' class='form-control' type='number'>
+            </div>
+            <div class='form-group'>
+              <label for='piece-y'>piece-y:</label>
+              <input id='piece-y' name='piece-y' class='form-control' type='number'>
+            </div>
+            <button type='submit' class='btn-success'>Compute</button>
+        </form>
+    </div>
+</body>
+</html>
