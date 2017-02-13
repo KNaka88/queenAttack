@@ -2,6 +2,7 @@
 
     require_once "src/Queen.php";
     require_once "src/Rook.php";
+    require_once "src/Bishop.php";
 
     class CanAttack_test extends PHPUnit_Framework_TestCase
     {
@@ -133,5 +134,23 @@
         }
 
 
+
+        // Bishop tests
+        function test_bishop_diagonal_more()
+        {
+            //Arrange
+            $bishop_x = 2;
+            $bishop_y = 2;
+            $piece_x = 4;
+            $piece_y = 4;
+            $test_canAttack = new Bishop($bishop_x, $bishop_y);
+
+
+            //Act
+            $result = $test_canAttack->canAttack($piece_x, $piece_y);
+
+            //Assert
+            $this->assertEquals(true, $result);
+        }
 
     }

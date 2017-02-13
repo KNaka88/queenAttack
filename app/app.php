@@ -4,6 +4,7 @@
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Queen.php";
     require_once __DIR__."/../src/Rook.php";
+    require_once __DIR__."/../src/Bishop.php";
 
     $app = new Silex\Application();
 
@@ -34,7 +35,9 @@
             case "queen":
                 $new_piece = new Queen($_GET['piece-x'], $_GET['piece-y']);
                 break;
-            default:
+            case "bishop":
+                $new_piece = new Bishop($_GET['piece-x'], $_GET['piece-y']);
+                default:
                 echo "Error";
         }
 
