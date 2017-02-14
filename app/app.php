@@ -5,6 +5,7 @@
     require_once __DIR__."/../src/Queen.php";
     require_once __DIR__."/../src/Rook.php";
     require_once __DIR__."/../src/Bishop.php";
+    require_once __DIR__."/../src/ChessBoard.php";
 
     $app = new Silex\Application();
 
@@ -15,7 +16,13 @@
     $app['debug'] = true;
 
     $app->get("/", function() use ($app) {
-        return $app['twig']->render('form.html.twig');
+        $newchessboard = new ChessBoard();
+        
+        $newchessboard->drawBoard();
+
+        return "helloworld";
+        // return $app['twig']->render('chessboard.html.twig', array('board'=>$newchessboard));
+        // return $app['twig']->render('form.html.twig');
     });
 
     $app->get("/display_chess_piece", function() use ($app) {
