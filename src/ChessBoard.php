@@ -2,6 +2,7 @@
     require_once "Queen.php";
     require_once "Rook.php";
     require_once "Bishop.php";
+    require_once "King.php";
 
     class ChessBoard
     {
@@ -39,8 +40,8 @@
             $this->chessboard[0][5] = new Bishop(0,5);
             $this->chessboard[7][2] = new Bishop(7,2);
             $this->chessboard[7][5] = new Bishop(7,5);
-            // $this->chessboard[0][4] = "K";
-            // $this->chessboard[7][4] = "K";
+            $this->chessboard[0][4] = new King(0,4);
+            $this->chessboard[7][4] = new King(7,4);
             $this->chessboard[0][3] = new Queen(0,3);
             $this->chessboard[7][3] = new Queen(7,3);
 

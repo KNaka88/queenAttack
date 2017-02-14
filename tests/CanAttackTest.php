@@ -3,6 +3,7 @@
     require_once "src/Queen.php";
     require_once "src/Rook.php";
     require_once "src/Bishop.php";
+    require_once "src/King.php";
 
     class CanAttack_test extends PHPUnit_Framework_TestCase
     {
@@ -11,9 +12,6 @@
 
             // If a queen piece and an opposing piece are in the same x coordinates, the queen is able to attack.
             // input->queen(1,4), piece(1,8) output->"true"
-
-
-
         function test_vertical()
         {
             //Arrange
@@ -145,6 +143,23 @@
             $piece_y = 4;
             $test_canAttack = new Bishop($bishop_x, $bishop_y);
 
+
+            //Act
+            $result = $test_canAttack->canAttack($piece_x, $piece_y);
+
+            //Assert
+            $this->assertEquals(true, $result);
+        }
+
+        //King test
+        function test_king()
+        {
+            //Arrange
+            $king_x = 2;
+            $king_y = 2;
+            $piece_x = 3;
+            $piece_y = 3;
+            $test_canAttack = new King($king_x, $king_y);
 
             //Act
             $result = $test_canAttack->canAttack($piece_x, $piece_y);
