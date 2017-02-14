@@ -4,6 +4,7 @@
     require_once "src/Rook.php";
     require_once "src/Bishop.php";
     require_once "src/King.php";
+    require_once "src/Pawn.php";
 
     class CanAttack_test extends PHPUnit_Framework_TestCase
     {
@@ -167,5 +168,43 @@
             //Assert
             $this->assertEquals(true, $result);
         }
+
+
+        //Pawn test
+        function test_pawn_diagonal()
+        {
+            //Arrange
+            $pawn_x = 2;
+            $pawn_y = 2;
+            $piece_x = 3;
+            $piece_y = 4;
+            $test_canAttack = new Pawn($pawn_x, $pawn_y);
+            $test_canAttack->setIsMoved(true); //Pawn will move vertically
+
+            //Act
+            $result = $test_canAttack->canAttack($piece_x, $piece_y);
+
+            //Assert
+            $this->assertEquals(true, $result);
+        }
+
+        //Pawn test
+        function test_pawn_vertical()
+        {
+            //Arrange
+            $pawn_x = 2;
+            $pawn_y = 2;
+            $piece_x = 2;
+            $piece_y = 4;
+            $test_canAttack = new Pawn($pawn_x, $pawn_y);
+
+            //Act
+            $result = $test_canAttack->canAttack($piece_x, $piece_y);
+
+            //Assert
+            $this->assertEquals(true, $result);
+        }
+
+
 
     }

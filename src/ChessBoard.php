@@ -3,6 +3,7 @@
     require_once "Rook.php";
     require_once "Bishop.php";
     require_once "King.php";
+    require_once "Pawn.php";
 
     class ChessBoard
     {
@@ -25,8 +26,8 @@
 
         function initializeBoard(){
             for ($i=0; $i<8; $i++){
-                // $this->chessboard[1][$i] = "P";
-                // $this->chessboard[6][$i] = "P";
+            $this->chessboard[1][$i] = new Pawn(1,$i);
+            $this->chessboard[6][$i] = new Pawn(6,$i);
             }
             $this->chessboard[0][0] = new Rook(0,0);
             $this->chessboard[0][7] = new Rook(0,7);
@@ -64,17 +65,5 @@
             }
             echo "</table>";
         }
-
-
-        // function setChessBoard (){
-        //     for($i=0; $i<8; $i++){
-        //         echo "<tr>";
-        //         for($j=0; $j<8; $j++){
-        //             array_push($chessboard[$i][$j], '[ ]');
-        //             echo $chessboard[$i][$j];
-        //         }
-        //         echo "</tr>";
-        //     }
-        // }
 
     }
