@@ -12,7 +12,7 @@
         {
             $this->x = $x;
             $this->y = $y;
-            $this->symbol = "P";
+            $this->symbol = "<img src='https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg' alt='pawn'>";
             $this->is_moved = false;
             $this->alive = true;
         }

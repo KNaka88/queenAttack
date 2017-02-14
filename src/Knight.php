@@ -6,12 +6,13 @@
         private $y;
         private $symbol;
         private $alive;
+        private $image;
 
         function __construct($x, $y)
         {
             $this->x = $x;
             $this->y = $y;
-            $this->symbol = "Kn";
+            $this->symbol = "<img src='https://upload.wikimedia.org/wikipedia/commons/7/70/Chess_nlt45.svg' alt='knight'>";
             $this->alive = true;
         }
 

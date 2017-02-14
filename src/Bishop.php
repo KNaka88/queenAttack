@@ -10,7 +10,7 @@ class Bishop
     {
         $this->x = $x;
         $this->y = $y;
-        $this->symbol = "B";
+        $this->symbol = "<img src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg' alt='bishop'>";
         $this->alive = true;
     }
 

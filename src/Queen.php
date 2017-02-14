@@ -11,7 +11,7 @@
         {
             $this->x = $x;
             $this->y = $y;
-            $this->symbol = "Q";
+            $this->symbol = "<img src='https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg' alt='queen'>";
             $this->alive = true;
         }
 

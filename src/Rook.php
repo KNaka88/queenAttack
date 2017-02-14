@@ -10,7 +10,7 @@ class Rook
     {
         $this->x = $x;
         $this->y = $y;
-        $this->symbol = "R";
+        $this->symbol = "<img src='https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg' alt='rook'>";
         $this->alive = true;
     }
 

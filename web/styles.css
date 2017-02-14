@@ -8,9 +8,9 @@ td {
 }
 
 tr:nth-child(even) td:nth-child(odd){
-    background-color: lightgrey;
+    background-color: #d1be94;
 }
 
 tr:nth-child(odd) td:nth-child(even){
-    background-color: lightgrey;
+    background-color: #d1be94;
 }
