@@ -4,6 +4,7 @@
     require_once "Bishop.php";
     require_once "King.php";
     require_once "Pawn.php";
+    require_once "Knight.php";
 
     class ChessBoard
     {
@@ -33,10 +34,10 @@
             $this->chessboard[0][7] = new Rook(0,7);
             $this->chessboard[7][0] = new Rook(7,0);
             $this->chessboard[7][7] = new Rook(7,7);
-            // $this->chessboard[0][1] = "Kn";
-            // $this->chessboard[0][6] = "Kn";
-            // $this->chessboard[7][1] = "Kn";
-            // $this->chessboard[7][6] = "Kn";
+            $this->chessboard[0][1] = new Knight(0, 1);
+            $this->chessboard[0][6] = new Knight(0,6);
+            $this->chessboard[7][1] = new Knight(7,1);
+            $this->chessboard[7][6] = new Knight(7,6);
             $this->chessboard[0][2] = new Bishop(0,2);
             $this->chessboard[0][5] = new Bishop(0,5);
             $this->chessboard[7][2] = new Bishop(7,2);
@@ -45,9 +46,6 @@
             $this->chessboard[7][4] = new King(7,4);
             $this->chessboard[0][3] = new Queen(0,3);
             $this->chessboard[7][3] = new Queen(7,3);
-
-
-
         }
 
         function drawBoard (){
