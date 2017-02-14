@@ -3,11 +3,13 @@ class Bishop
 {
     private $x;
     private $y;
+    private $symbol;
 
     function __construct($x, $y)
     {
         $this->x = $x;
         $this->y = $y;
+        $this->symbol = "B";
     }
 
     function getX(){
@@ -16,6 +18,10 @@ class Bishop
 
     function getY(){
         return $this->y;
+    }
+
+    function getSymbol(){
+        return $this->symbol;
     }
 
     function setX($new_x){

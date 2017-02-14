@@ -3,11 +3,13 @@ class Rook
 {
     private $x;
     private $y;
+    private $symbol;
 
     function __construct($x, $y)
     {
         $this->x = $x;
         $this->y = $y;
+        $this->symbol = "R";
     }
 
     function getX(){
@@ -16,6 +18,10 @@ class Rook
 
     function getY(){
         return $this->y;
+    }
+
+    function getSymbol(){
+        return $this->symbol;
     }
 
     function setX($new_x){

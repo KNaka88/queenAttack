@@ -4,11 +4,13 @@
     {
         private $x;
         private $y;
+        private $symbol;
 
         function __construct($x, $y)
         {
             $this->x = $x;
             $this->y = $y;
+            $this->symbol = "Q";
         }
 
         function getX(){
@@ -19,6 +21,10 @@
             return $this->y;
         }
 
+        function getSymbol(){
+            return $this->symbol;
+        }
+        
         function setX($new_x){
             $this->x = $new_x;
         }
@@ -26,6 +32,7 @@
         function setY($new_y){
             $this->y = $new_y;
         }
+
 
 
         function canAttack($x, $y)
