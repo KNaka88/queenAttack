@@ -6,6 +6,7 @@
         private $y;
         private $symbol;
         private $is_moved;
+        private $alive;
 
         function __construct($x, $y)
         {
@@ -13,6 +14,7 @@
             $this->y = $y;
             $this->symbol = "P";
             $this->is_moved = false;
+            $this->alive = true;
         }
 
         function getX(){
@@ -31,6 +33,10 @@
           return $this->is_moved;
         }
 
+        function getAlive(){
+            return $this->alive;
+        }
+
         function setX($new_x){
             $this->x = $new_x;
         }
@@ -41,6 +47,10 @@
 
         function setIsMoved($new_is_moved){ //pass either true or false
           $this->is_moved = $new_is_moved;
+        }
+
+        function setAlive($alive){ //if this piece died, change to false;
+            $this->alive = $alive;
         }
 
 
