@@ -17,8 +17,6 @@
 
     $app->get("/", function() use ($app) {
         $newchessboard = new ChessBoard();
-    
-
 
         return $app['twig']->render('chessboard.html.twig', array('board'=>$newchessboard));
         // return $app['twig']->render('form.html.twig');

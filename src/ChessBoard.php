@@ -14,6 +14,7 @@
         {
             $this->chessboard = array();
             for($row=0; $row<8; $row++){
+
                 array_push($this->chessboard, array());
                 for($col=0; $col<8; $col++){
                     $this->chessboard[$row][$col] = "";
@@ -51,12 +52,12 @@
         function drawBoard (){
             echo "<table>";
             for($row=0; $row<8; $row++){
-                echo "<tr class='piece'>";
+                echo "<tr class='piece' id='row$row'>";
                 for($col=0; $col<8; $col++){
                     if(!empty($this->chessboard[$row][$col])){
-                        echo "<td class='piece'>" . $this->chessboard[$row][$col]->getSymbol() . "</td>";
+                        echo "<td class='piece' id='col-$col-row-$row'>" . $this->chessboard[$row][$col]->getSymbol() . "</td>";
                     } else {
-                        echo "<td class='piece'>" . $this->chessboard[$row][$col] . "</td>";
+                        echo "<td class='piece' id='id=col-$col-row-$row'>" . $this->chessboard[$row][$col] . "</td>";
                     }
                 }
                 echo "</tr>";
