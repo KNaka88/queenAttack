@@ -65,4 +65,11 @@
             echo "</table>";
         }
 
+
+        static function save($chessboard){
+          $_SESSION["chess"] = [];
+          array_push($_SESSION["chess"], $chessboard);
+        }
+
+
     }

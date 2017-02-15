@@ -48,13 +48,20 @@
         function canAttack($x, $y)
         {
             $diff = $this->x - $x;
-            if($this->x == $x){
-                return true;
-            }elseif($this->y == $y){
-                return true;
-            }elseif(($this->x + $diff == $x|| $this->x - $diff == $x) && ($this->y + $diff == $y || $this->y - $diff == $y)){
-                return true;
-            }else {
+
+            if($_SESSION['chess'][0]->chessboard[$x][$y] != ""){ //check if the attack position is not empty
+                //if there is piece
+                if($this->x == $x){
+                    return true;
+                }elseif($this->y == $y){
+                    return true;
+                }elseif(($this->x + $diff == $x|| $this->x - $diff == $x) && ($this->y + $diff == $y || $this->y - $diff == $y)){
+                    return true;
+                }else {
+                    return false;
+                }
+
+            }else { //if attack place is empty
                 return false;
             }
         }

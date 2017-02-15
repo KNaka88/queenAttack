@@ -10,8 +10,15 @@
 <body>
     <h1>Chess Game</h1>
     <div class="container chess-board">
-        {{ board.initializeBoard }}
-        {{ board.drawBoard }}
+        {{ board[0].drawBoard }}
     </div>
+
+    <form id="attack-form" action="/attack" method="post">
+      <button class='btn btn-danger'>Attack</button>
+    </form>
+
+    <h4>if you click "Attack" button, you will jump to /attack page and Queen[7][3] attacks the Queen[0][3]</h4>
+    <h4>This result the Queen[0][3]'s live change tp false and remove from the position[0][3]</h4>
+    <h4>If you click "Attack" button again, nothing happens because class Queen's method canAttack returns false and nothing happens</h4>
 </body>
 </html>
