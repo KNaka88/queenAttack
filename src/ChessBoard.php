@@ -38,7 +38,7 @@
             $this->chessboard[0][1] = new Knight(0, 1);
             $this->chessboard[0][6] = new Knight(0,6);
             $this->chessboard[7][1] = new Knight(7,1);
-            $this->chessboard[7][6] = new Knight(7,6);
+            $this->chessboard[6][7] = new Knight(6,7);
             $this->chessboard[0][2] = new Bishop(0,2);
             $this->chessboard[0][5] = new Bishop(0,5);
             $this->chessboard[7][2] = new Bishop(7,2);

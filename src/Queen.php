@@ -47,9 +47,56 @@
 
         function canAttack($x, $y)
         {
-            $diff = $this->x - $x;
+
+            $diffX = $this->x - $x;
+            $diffY = $this->y - $y;
+            $ifDiffXIsPositive = ($diffX > 0); //if diff is positive val: true, negative: false
+            $ifDiffYIsPositive = ($diffY > 0); //if diff is positive val: true, negative: false
+
+
 
             if($_SESSION['chess'][0]->chessboard[$x][$y] != ""){ //check if the attack position is not empty
+
+                //CHECK X AXIS
+                if($ifDiffXIsPositive){
+                  for($i=abs($diffX); $i>0; $i--){
+                    if($_SESSION['chess'][0]->chessboard[$x+$i][$y] != ""){
+                      echo "you cannot attack!!(X Position)<br>";
+                      break;
+                    }
+                  }
+                }else{
+                  for($i=0; $i<abs($diffX); $i++){
+                    if($_SESSION['chess'][0]->chessboard[$x-$i][$y] != ""){
+                      echo "You cannot attack(X Position)<br>!!!";
+                      break;
+                    }
+                  }
+                }
+
+                //CHECK Y AXIS
+                if($ifDiffYIsPositive){
+                  for($i=0; $i<abs($diffY); $i++){
+                    if($_SESSION['chess'][0]->chessboard[$x][$y-$i] != ""){
+                      echo "you cannot attack!!(Y Position)<br>";
+                      break;
+                    }
+                  }
+                }else{
+                  var_dump(abs($diffY));
+                  for($i=abs($diffY); $i>0; $i--){
+                    if($_SESSION['chess'][0]->chessboard[$x][$y-$i] != ""){
+                      echo "You cannot attack!!!(Y Position)<br>";
+                    }
+                  }
+                }
+
+
+              //if another piece is near you and prevent you from attack opponents, return false
+
+
+
+
                 //TRUE: there is piece
                 $not_this_x_position = ($this->x != $x);
                 $not_this_y_position = ($this->y != $y);
@@ -59,7 +106,7 @@
                     return true;
                 }elseif($this->y == $y && $not_this_x_position){
                     return true;
-                }elseif(($this->x + $diff == $x|| $this->x - $diff == $x) && ($this->y + $diff == $y || $this->y - $diff == $y) && $not_this_position){
+                }elseif(($this->x + $diffX == $x|| $this->x - $diffX == $x) && ($this->y + $diffX == $y || $this->y - $diffX == $y) && $not_this_position){
                     return true;
                 }else {
                     return false;
