@@ -14,8 +14,11 @@
     </div>
 
     <form id="attack-form" action="/attack" method="post">
-      <button class='btn btn-danger'>Attack</button>
+        <input class='btn' id='clicked-x' name='x-pos'></input>
+        <input class='btn' id='clicked-y' name='y-pos'></input>
+      <button type='submit' class='btn btn-danger'>Attack</button>
     </form>
+
 
     <h4>if you click "Attack" button, you will jump to /attack page and Queen[7][3] attacks the Queen[0][3]</h4>
     <h4>This result the Queen[0][3]'s live change tp false and remove from the position[0][3]</h4>

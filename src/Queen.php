@@ -50,18 +50,22 @@
             $diff = $this->x - $x;
 
             if($_SESSION['chess'][0]->chessboard[$x][$y] != ""){ //check if the attack position is not empty
-                //if there is piece
-                if($this->x == $x){
+                //TRUE: there is piece
+                $not_this_x_position = ($this->x != $x);
+                $not_this_y_position = ($this->y != $y);
+                $not_this_position = ($not_this_x_position && $not_this_y_position); //avoid selecting current place
+
+                if($this->x == $x && $not_this_y_position){
                     return true;
-                }elseif($this->y == $y){
+                }elseif($this->y == $y && $not_this_x_position){
                     return true;
-                }elseif(($this->x + $diff == $x|| $this->x - $diff == $x) && ($this->y + $diff == $y || $this->y - $diff == $y)){
+                }elseif(($this->x + $diff == $x|| $this->x - $diff == $x) && ($this->y + $diff == $y || $this->y - $diff == $y) && $not_this_position){
                     return true;
                 }else {
                     return false;
                 }
 
-            }else { //if attack place is empty
+            }else { //FALSE: attack place is empty
                 return false;
             }
         }

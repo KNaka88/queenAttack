@@ -55,10 +55,14 @@
 
     $app->post("/attack", function() use ($app) {
         $load = $_SESSION['chess'];
-        $check = $load[0]->chessboard[7][3]->canAttack(0,3);
+
+        $x_pos = (string)$_POST['x-pos'];
+        $y_pos = (string)$_POST['y-pos'];
+        $check = $load[0]->chessboard[7][3]->canAttack($x_pos, $y_pos);
+        var_dump($check);
         if($check){
-          $load[0]->chessboard[0][3]->setAlive(false);
-          $load[0]->chessboard[0][3] = "";
+          $load[0]->chessboard[$x_pos][$y_pos]->setAlive(false);
+          $load[0]->chessboard[$x_pos][$y_pos] = "";
         }
         return $app['twig']->render('chessboard.html.twig', array('board'=>$_SESSION['chess']));
     });

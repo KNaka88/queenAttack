@@ -52,7 +52,7 @@
         function drawBoard (){
             echo "<table>";
             for($row=0; $row<8; $row++){
-                echo "<tr class='piece' id='row$row'>";
+                echo "<tr id='row$row'>";
                 for($col=0; $col<8; $col++){
                     if(!empty($this->chessboard[$row][$col])){
                         echo "<td class='piece' id='col-$col-row-$row'>" . $this->chessboard[$row][$col]->getSymbol() . "</td>";
