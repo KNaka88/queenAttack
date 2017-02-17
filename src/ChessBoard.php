@@ -30,19 +30,19 @@
 
 
             //Piece IMAGE
-            $white_king = "<img id='player1'  src='https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg' alt='white-king'>";
-            $white_queen =  "<img id='player1' src='https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg' alt='white-queen'>";
-            $white_knight = "<img id='player1' src='https://upload.wikimedia.org/wikipedia/commons/7/70/Chess_nlt45.svg' alt='white-knight'>";
-            $white_pawn = "<img id='player1' src='https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg' alt='white-pawn'>";
-            $white_rook = "<img id='player1' src='https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg' alt='white-rook'>";
-            $white_bishop = "<img id='player1' src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg' alt='white-bishop'>";
+            $white_king = "<img class='player1'  src='https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg' alt='white-king'>";
+            $white_queen =  "<img class='player1' src='https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg' alt='white-queen'>";
+            $white_knight = "<img class='player1' src='https://upload.wikimedia.org/wikipedia/commons/7/70/Chess_nlt45.svg' alt='white-knight'>";
+            $white_pawn = "<img class='player1' src='https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg' alt='white-pawn'>";
+            $white_rook = "<img class='player1' src='https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg' alt='white-rook'>";
+            $white_bishop = "<img class='player1' src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg' alt='white-bishop'>";
 
-            $black_king = "<img id='player2' src='https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg' alt='black-king'>";
-            $black_queen = "<img id='player2' src='https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg' alt='white-queen'>";
-            $black_knight = "<img id='player2' src='https://upload.wikimedia.org/wikipedia/commons/e/ef/Chess_ndt45.svg' alt='black-knight'>";
-            $black_pawn = "<img id='player2' src='https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg' alt='black-pawn'>";
-            $black_rook = "<img id='player2' src='https://upload.wikimedia.org/wikipedia/commons/f/ff/Chess_rdt45.svg' alt='black-rook'>";
-            $black_bishop = "<img id='player2' src='https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg' alt='black-bishop'>";
+            $black_king = "<img class='player2' src='https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg' alt='black-king'>";
+            $black_queen = "<img class='player2' src='https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg' alt='white-queen'>";
+            $black_knight = "<img class='player2' src='https://upload.wikimedia.org/wikipedia/commons/e/ef/Chess_ndt45.svg' alt='black-knight'>";
+            $black_pawn = "<img class='player2' src='https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg' alt='black-pawn'>";
+            $black_rook = "<img class='player2' src='https://upload.wikimedia.org/wikipedia/commons/f/ff/Chess_rdt45.svg' alt='black-rook'>";
+            $black_bishop = "<img class='player2' src='https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg' alt='black-bishop'>";
 
 
 
