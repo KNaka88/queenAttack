@@ -42,16 +42,22 @@ $(function(){
     }
 
 
+    //Passing Player's position and Moving&Attack Position
+    var thisPosition = $(".piece-selected").attr('id');
+    var moveAttackPosition = $(".position-selected").attr('id');
 
-    //add red border and pass current XY positionif user clicked specific piece
-    // $(this).css("border", "4px solid red");
-    // $(this).addClass("on");
-    var thisPosition = this.id.replace(/[^0-9]*/g,"");
-    var thisRPos = thisPosition[1];
-    var thisCPos = thisPosition[0];
-    console.log("Row:" + thisRPos);
-    console.log("Col:" + thisCPos);
-    $("#this_r").val(thisRPos);
-    $("#this_c").val(thisCPos);
+    if(thisPosition && moveAttackPosition){
+      thisPosition = thisPosition.replace(/[^0-9]*/g,"");
+      moveAttackPosition = moveAttackPosition.replace(/[^0-9]*/g,"");
+
+      var thisRPos = thisPosition[1];
+      var thisCPos = thisPosition[0];
+      var moveAtckRPos = moveAttackPosition[1];
+      var moveAtckCPos = moveAttackPosition[0];
+      $("#this_r").val(thisRPos);
+      $("#this_c").val(thisCPos);
+      $("#move_atck_r").val(moveAtckRPos);
+      $("#move_atck_c").val(moveAtckCPos);
+    }
   });
 });

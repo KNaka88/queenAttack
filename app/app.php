@@ -35,12 +35,20 @@
         $load = $_SESSION['chess'];
         $r_pos = (string)$_POST['this_r'];
         $c_pos = (string)$_POST['this_c'];
-        $check = $load[0]->chessboard[7][3]->canAttack($r_pos, $c_pos);
-        var_dump($check);
-        if($check){
-          $load[0]->chessboard[$r_pos][$c_pos]->setAlive(false);
-          $load[0]->chessboard[$r_pos][$c_pos] = "";
+        $atck_r = (string)$_POST['move_atck_r'];
+        $atck_c = (string)$_POST['move_atck_c'];
+
+        if(!(empty($r_pos) && empty($c_pos) && empty($atck_r) && empty($atck_c))){
+
+            $check = $load[0]->chessboard[$r_pos][$c_pos]->canAttack($atck_r, $atck_c);
+            var_dump($check);
+            if($check){
+              $load[0]->chessboard[$atck_r][$atck_c]->setAlive(false);
+              $load[0]->chessboard[$atck_r][$atck_c] = "";
+            }
+
         }
+
         return $app['twig']->render('chessboard.html.twig', array('board'=>$_SESSION['chess']));
     });
 

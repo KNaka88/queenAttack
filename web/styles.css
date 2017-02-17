@@ -15,6 +15,6 @@ tr:nth-child(odd) td:nth-child(even){
     background-color: #d1be94;
 }
 
-#this_r, #this_c {
+#this_r, #this_c, #move_atck_r, #move_atck_c {
   display: none;
 }
