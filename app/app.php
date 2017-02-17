@@ -22,7 +22,7 @@
       $_SESSION['chess'] = array();
     }
 
-    
+
     $app->get("/", function() use ($app) {
         $newchessboard = new ChessBoard();
         $newchessboard->initializeBoard();
@@ -33,18 +33,15 @@
 
     $app->post("/attack", function() use ($app) {
         $load = $_SESSION['chess'];
-
-        $x_pos = (string)$_POST['x-pos'];
-        $y_pos = (string)$_POST['y-pos'];
-        $check = $load[0]->chessboard[7][3]->canAttack($x_pos, $y_pos);
+        $r_pos = (string)$_POST['this_r'];
+        $c_pos = (string)$_POST['this_c'];
+        $check = $load[0]->chessboard[7][3]->canAttack($r_pos, $c_pos);
         var_dump($check);
         if($check){
-          $load[0]->chessboard[$x_pos][$y_pos]->setAlive(false);
-          $load[0]->chessboard[$x_pos][$y_pos] = "";
+          $load[0]->chessboard[$r_pos][$c_pos]->setAlive(false);
+          $load[0]->chessboard[$r_pos][$c_pos] = "";
         }
         return $app['twig']->render('chessboard.html.twig', array('board'=>$_SESSION['chess']));
     });
-
-
 
     return $app;

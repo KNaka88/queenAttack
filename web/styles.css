@@ -15,6 +15,6 @@ tr:nth-child(odd) td:nth-child(even){
     background-color: #d1be94;
 }
 
-#clicked-x, #clicked-y {
+#this_r, #this_c {
   display: none;
 }
