@@ -5,8 +5,20 @@ $(function(){
 
 
 
+
   //SELECT
   $(".piece").click(function(){
+
+
+    //If user clicked player's piece this program will return
+
+
+
+
+
+    //once user select the piece, user can select position and take action
+
+
     //remove red border color if user clicked another piece
     if($("td").hasClass("on")){
       $("td").css("border", "2px solid black");

@@ -5,13 +5,15 @@ class Bishop
     private $y;
     private $symbol;
     private $alive;
+    private $player;
 
-    function __construct($x, $y)
+    function __construct($x, $y, $symbol, $player)
     {
         $this->x = $x;
         $this->y = $y;
-        $this->symbol = "<img src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg' alt='bishop'>";
+        $this->symbol = $symbol;
         $this->alive = true;
+        $this->player = $player;
     }
 
     function getX(){

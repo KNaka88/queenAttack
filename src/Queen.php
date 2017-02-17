@@ -6,13 +6,15 @@
         private $y;
         private $symbol;
         private $alive;
+        private $player;
 
-        function __construct($x, $y)
+        function __construct($x, $y, $symbol, $player)
         {
             $this->x = $x;
             $this->y = $y;
-            $this->symbol = "<img src='https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg' alt='queen'>";
+            $this->symbol = $symbol;
             $this->alive = true;
+            $this->player = $player;
         }
 
         function getX(){

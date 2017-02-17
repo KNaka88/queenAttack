@@ -8,14 +8,16 @@
         private $is_moved;
         private $alive;
 
-        function __construct($x, $y)
+        function __construct($x, $y, $symbol, $player)
         {
             $this->x = $x;
             $this->y = $y;
-            $this->symbol = "<img src='https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg' alt='pawn'>";
-            $this->is_moved = false;
+            $this->symbol = $symbol;
             $this->alive = true;
+            $this->is_moved = false;
+            $this->player = $player;
         }
+
 
         function getX(){
             return $this->x;
