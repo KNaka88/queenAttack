@@ -33,20 +33,25 @@
 
     $app->post("/attack", function() use ($app) {
         $load = $_SESSION['chess'];
-        $r_pos = (string)$_POST['this_r'];
-        $c_pos = (string)$_POST['this_c'];
-        $atck_r = (string)$_POST['move_atck_r'];
-        $atck_c = (string)$_POST['move_atck_c'];
+        $r_pos = $_POST['this_r'];
+        $c_pos = $_POST['this_c'];
+        $atck_r = $_POST['move_atck_r'];
+        $atck_c = $_POST['move_atck_c'];
 
         if(!(empty($r_pos) && empty($c_pos) && empty($atck_r) && empty($atck_c))){
 
-            $check = $load[0]->chessboard[$r_pos][$c_pos]->canAttack($atck_r, $atck_c);
-            var_dump($check);
-            if($check){
-              $load[0]->chessboard[$atck_r][$atck_c]->setAlive(false);
-              $load[0]->chessboard[$atck_r][$atck_c] = "";
-            }
+          echo $r_pos;
+          echo $c_pos;
+          echo $atck_r;
+          echo $atck_c;
 
+            $check = $load[0]->chessboard[$r_pos][$c_pos]->canAttack($atck_r, $atck_c);
+            if($check){
+              $load[0]->chessboard[$atck_r][$atck_c] = $load[0]->chessboard[$r_pos][$c_pos];
+              $load[0]->chessboard[$r_pos][$c_pos] = "";
+            }
+            //false is occurred because chessboard[$atck_r][$atck_c]'s  $this->x and $this->y is not updated.
+            //you need to set x and y again!!!
         }
 
         return $app['twig']->render('chessboard.html.twig', array('board'=>$_SESSION['chess']));

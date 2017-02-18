@@ -50,10 +50,10 @@ $(function(){
       thisPosition = thisPosition.replace(/[^0-9]*/g,"");
       moveAttackPosition = moveAttackPosition.replace(/[^0-9]*/g,"");
 
-      var thisRPos = thisPosition[1];
-      var thisCPos = thisPosition[0];
-      var moveAtckRPos = moveAttackPosition[1];
-      var moveAtckCPos = moveAttackPosition[0];
+      var thisRPos = thisPosition[0];
+      var thisCPos = thisPosition[1];
+      var moveAtckRPos = moveAttackPosition[0];
+      var moveAtckCPos = moveAttackPosition[1];
       $("#this_r").val(thisRPos);
       $("#this_c").val(thisCPos);
       $("#move_atck_r").val(moveAtckRPos);

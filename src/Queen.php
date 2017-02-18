@@ -17,11 +17,11 @@
             $this->player = $player;
         }
 
-        function getX(){
+        function getR(){
             return $this->x;
         }
 
-        function getY(){
+        function getC(){
             return $this->y;
         }
 
@@ -31,6 +31,10 @@
 
         function getAlive(){
             return $this->alive;
+        }
+
+        function getThisPiece(){
+            return $this;
         }
 
         function setX($new_x){

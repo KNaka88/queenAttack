@@ -49,9 +49,14 @@
         function canAttack($x, $y)
         {
           //check true or false
+
           $check_horizontal = (($this->x + 1 == $x || $this->x - 1 == $x) && $this->y == $y);
           $check_vertical = (($this->y + 1 == $y || $this->y - 1 == $y) && $this->x == $x);
           $check_diagonal = ($this->x + 1 == $x || $this->x - 1 == $x || $this->x) && ($this->y + 1 == $y || $this->y - 1 == $y);
+
+          echo "Check Horizontal"; var_dump($check_horizontal);
+          echo "Check Vertical: "; var_dump($check_vertical);
+          echo "Check Doagonal: "; var_dump($check_diagonal);
 
             if($check_horizontal || $check_vertical || $check_diagonal){
                 return true;
