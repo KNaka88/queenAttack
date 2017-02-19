@@ -49,6 +49,53 @@ class Rook
 
     function canAttack($x, $y)
     {
+
+        $diffX = $this->x - $x;
+        $diffY = $this->y - $y;
+        $ifDiffXIsPositive = ($diffX > 0); //if diff is positive val: true, negative: false
+        $ifDiffYIsPositive = ($diffY > 0); //if diff is positive val: true, negative: false
+
+        // $check_if_no_piece_r =
+            if($ifDiffXIsPositive){
+              for($i=1; $i< abs($diffX); $i++){
+                if($_SESSION['chess'][0]->chessboard[$this->x - $i][$y] != ""){
+                  echo $x+$i;
+                  echo "case1";
+                  // $check_if_no_piece_r = false;
+                  // break;
+                  return false;
+                }
+              }
+            }else{
+              for($i=1; $i<abs($diffX); $i++){
+                if($_SESSION['chess'][0]->chessboard[$this->x + $i][$y] != ""){
+                  echo "case2";
+                  return false;
+                }
+              }
+            };
+
+        // $check_if_no_piece_c =
+            //CHECK C AXIS
+            if($ifDiffYIsPositive){
+              for($i=1; $i<abs($diffY); $i++){
+                if($_SESSION['chess'][0]->chessboard[$x][$this->y - $i] != ""){
+                  echo "case3";
+                  return false;
+                }
+              }
+            }else{
+              var_dump(abs($diffY));
+              for($i=1; $i<abs($diffY); $i++){
+                if($_SESSION['chess'][0]->chessboard[$x][$this->y + $i] != ""){
+                  echo "case4";
+                  return false;
+                }
+              }
+            };
+
+
+
         if($this->x == $x){
             return true;
         }elseif($this->y == $y){

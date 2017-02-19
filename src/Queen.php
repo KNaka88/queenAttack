@@ -105,7 +105,7 @@
             //check if no piece diagnotical  upperleft and down right
             if($ifDiffXIsPositive && $diffY != 0){
               for($i=1; $i< abs($diffX); $i++){
-                if($_SESSION['chess'][0]->chessboard[$this->x - $i][$y + $i] != ""){
+                if($_SESSION['chess'][0]->chessboard[$this->x - $i][$this->y + $i] != ""){
                   echo $x+$i;
                   echo "case5";
                   // $check_if_no_piece_r = false;
@@ -115,7 +115,7 @@
               }
             }elseif($diffY != 0){
               for($i=1; $i<abs($diffX); $i++){
-                if($_SESSION['chess'][0]->chessboard[$this->x + $i][$y - $i] != ""){
+                if($_SESSION['chess'][0]->chessboard[$this->x + $i][$this->y - $i] != ""){
                   echo "case6";
                   return false;
                 }
