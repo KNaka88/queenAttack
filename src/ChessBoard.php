@@ -70,7 +70,7 @@
             $this->chessboard[0][2] = new Bishop(0,2, $black_bishop, "player2");
             $this->chessboard[0][5] = new Bishop(0,5, $black_bishop, "player2");
             $this->chessboard[0][4] = new King(0,4, $black_king, "player2");
-            $this->chessboard[0][3] = new King(0,3, $white_queen, "player1");
+            $this->chessboard[0][3] = new Queen(0,3, $black_queen, "player2");
         }
 
         function drawBoard (){

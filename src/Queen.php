@@ -37,11 +37,11 @@
             return $this;
         }
 
-        function setX($new_x){
+        function setR($new_x){
             $this->x = $new_x;
         }
 
-        function setY($new_y){
+        function setC($new_y){
             $this->y = $new_y;
         }
 

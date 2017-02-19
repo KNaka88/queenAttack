@@ -48,6 +48,9 @@
             $check = $load[0]->chessboard[$r_pos][$c_pos]->canAttack($atck_r, $atck_c);
             if($check){
               $load[0]->chessboard[$atck_r][$atck_c] = $load[0]->chessboard[$r_pos][$c_pos];
+              var_dump($load[0]->chessboard[$atck_r][$atck_c]);
+              $load[0]->chessboard[$atck_r][$atck_c]->setR($atck_r);
+              $load[0]->chessboard[$atck_r][$atck_c]->setC($atck_c);
               $load[0]->chessboard[$r_pos][$c_pos] = "";
             }
             //false is occurred because chessboard[$atck_r][$atck_c]'s  $this->x and $this->y is not updated.

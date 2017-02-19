@@ -19,11 +19,11 @@
         }
 
 
-        function getX(){
+        function getR(){
             return $this->x;
         }
 
-        function getY(){
+        function getC(){
             return $this->y;
         }
 
@@ -39,11 +39,11 @@
             return $this->alive;
         }
 
-        function setX($new_x){
+        function setR($new_x){
             $this->x = $new_x;
         }
 
-        function setY($new_y){
+        function setC($new_y){
             $this->y = $new_y;
         }
 
