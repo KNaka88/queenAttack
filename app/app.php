@@ -40,13 +40,14 @@
 
         if(!(empty($r_pos) && empty($c_pos) && empty($atck_r) && empty($atck_c))){
 
-            //check if the piece can move
-            $canMove =  $load[0]->chessboard[$r_pos][$c_pos]->canMove($atck_r, $atck_c);
+            //check if the pawn can move
+            $pawn_can_move = $load[0]->chessboard[$r_pos][$c_pos]->pawnCanMove($atck_r, $atck_c);
+
 
             //check if the piece can attack specific piece
             $check = $load[0]->chessboard[$r_pos][$c_pos]->canAttack($atck_r, $atck_c);
 
-            if($canMove || $check){
+            if($pawn_can_move || $check){
               $load[0]->chessboard[$atck_r][$atck_c] = $load[0]->chessboard[$r_pos][$c_pos];
               $load[0]->chessboard[$atck_r][$atck_c]->setR($atck_r);
               $load[0]->chessboard[$atck_r][$atck_c]->setC($atck_c);

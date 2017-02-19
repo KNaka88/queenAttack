@@ -48,6 +48,10 @@
             $this->alive = $alive;
         }
 
+        function pawnCanMove($r, $c){
+            return false;
+        }
+
 
         function canAttack($x, $y)
         {

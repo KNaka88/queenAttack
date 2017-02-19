@@ -56,7 +56,7 @@
         }
 
 
-        function canMove($r, $c)
+        function pawnCanMove($r, $c)
         {
           $direction = 0;
           if($this->player == "player1"){
