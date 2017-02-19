@@ -40,21 +40,18 @@
 
         if(!(empty($r_pos) && empty($c_pos) && empty($atck_r) && empty($atck_c))){
 
-          echo $r_pos;
-          echo $c_pos;
-          echo $atck_r;
-          echo $atck_c;
+            //check if the piece can move
+            $canMove =  $load[0]->chessboard[$r_pos][$c_pos]->canMove($atck_r, $atck_c);
 
+            //check if the piece can attack specific piece
             $check = $load[0]->chessboard[$r_pos][$c_pos]->canAttack($atck_r, $atck_c);
-            if($check){
+
+            if($canMove || $check){
               $load[0]->chessboard[$atck_r][$atck_c] = $load[0]->chessboard[$r_pos][$c_pos];
-              var_dump($load[0]->chessboard[$atck_r][$atck_c]);
               $load[0]->chessboard[$atck_r][$atck_c]->setR($atck_r);
               $load[0]->chessboard[$atck_r][$atck_c]->setC($atck_c);
               $load[0]->chessboard[$r_pos][$c_pos] = "";
             }
-            //false is occurred because chessboard[$atck_r][$atck_c]'s  $this->x and $this->y is not updated.
-            //you need to set x and y again!!!
         }
 
         return $app['twig']->render('chessboard.html.twig', array('board'=>$_SESSION['chess']));

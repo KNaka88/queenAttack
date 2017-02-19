@@ -2,16 +2,16 @@
 
     class Pawn
     {
-        private $x;
-        private $y;
+        private $r;
+        private $c;
         private $symbol;
         private $is_moved;
         private $alive;
 
-        function __construct($x, $y, $symbol, $player)
+        function __construct($r, $c, $symbol, $player)
         {
-            $this->x = $x;
-            $this->y = $y;
+            $this->r = $r;
+            $this->c = $c;
             $this->symbol = $symbol;
             $this->alive = true;
             $this->is_moved = false;
@@ -20,11 +20,11 @@
 
 
         function getR(){
-            return $this->x;
+            return $this->r;
         }
 
         function getC(){
-            return $this->y;
+            return $this->c;
         }
 
         function getSymbol(){
@@ -39,12 +39,12 @@
             return $this->alive;
         }
 
-        function setR($new_x){
-            $this->x = $new_x;
+        function setR($new_r){
+            $this->r = $new_r;
         }
 
-        function setC($new_y){
-            $this->y = $new_y;
+        function setC($new_c){
+            $this->c = $new_c;
         }
 
         function setIsMoved($new_is_moved){ //pass either true or false
@@ -56,26 +56,45 @@
         }
 
 
-        function canAttack($x, $y)
+        function canMove($r, $c)
         {
-            $check_diagonally_forward = ($this->x + 1 == $x && $this->y + 1 == $y) || ($this->x - 1 == $x && $this->y + 1 == $y);
-            $check_vertically_forward = ($this->y + 1 == $y || $this->y + 2 == $y) && ($this->x == $x);
+          $direction = 0;
+          if($this->player == "player1"){
+            $direction = -1; //player1
+          }else{
+            $direction = 1; //player2
+          }
 
-            if($this->is_moved){ //if true: Pawn can attack diagonally forward
-                if($check_diagonally_forward){
-                    return true;
-                }else{
-                    return false;
-                }
-            } else { //if false: Pawn can attack vertically forward
-                if($check_vertically_forward){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
+          //avoid checking out of bound row and col
+          $not_outbound = ($this->r + $direction != -1) && ($this->r + $direction != 8);
+          $no_one_forward = false;
+
+          //if another piece is located at forward, return false;
+          if($not_outbound){
+            $no_one_forward = ($_SESSION['chess'][0]->chessboard[$this->r + $direction][$this->c] == '');
+            var_dump($no_one_forward);
+          }
+
+          //if true: Pawn already moved
+          if($this->is_moved && $no_one_forward){
+            return ($this->r + $direction == $r) && ($this->c == $c);
+          }elseif ($no_one_forward){
+            $this->is_moved = true;
+            return ($this->r + $direction == $r || $this->r + $direction*2  == $r) && ($this->c == $c);
+          }
         }
 
 
+        function canAttack($r, $c)
+        {
+            $check_diagonally_forward = ($this->r + 1 == $r && $this->c + 1 == $c) || ($this->r - 1 == $r && $this->c + 1 == $c) || ($this->r - 1 == $r && $this->c - 1 == $c) || ($this->r + 1 == $r && $this->c - 1 == $c);
 
+            var_dump($check_diagonally_forward);
+            if($check_diagonally_forward && $_SESSION['chess'][0]->chessboard[$r][$c] != ''){
+                return true;
+            }else{
+                return false;
+            }
+            return true;
+        }
     }

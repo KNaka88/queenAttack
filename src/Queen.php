@@ -50,7 +50,6 @@
         }
 
 
-
         function canAttack($x, $y)
         {
 
@@ -61,7 +60,7 @@
 
 
 
-            if($_SESSION['chess'][0]->chessboard[$x][$y] != ""){ //check if the attack position is not empty
+
 
                 //CHECK X AXIS
                 if($ifDiffXIsPositive){
@@ -108,6 +107,7 @@
                 $not_this_y_position = ($this->y != $y);
                 $not_this_position = ($not_this_x_position && $not_this_y_position); //avoid selecting current place
 
+
                 if($this->x == $x && $not_this_y_position){
                     return true;
                 }elseif($this->y == $y && $not_this_x_position){
@@ -118,9 +118,6 @@
                     return false;
                 }
 
-            }else { //FALSE: attack place is empty
-                return false;
-            }
         }
 
 
