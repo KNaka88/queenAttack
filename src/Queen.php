@@ -56,52 +56,90 @@
 
         function canAttack($x, $y)
         {
-
             $diffX = $this->x - $x;
             $diffY = $this->y - $y;
             $ifDiffXIsPositive = ($diffX > 0); //if diff is positive val: true, negative: false
             $ifDiffYIsPositive = ($diffY > 0); //if diff is positive val: true, negative: false
 
 
-
-
-
-                //CHECK X AXIS
+            // $check_if_no_piece_r =
                 if($ifDiffXIsPositive){
-                  for($i=abs($diffX); $i>0; $i--){
-                    if($_SESSION['chess'][0]->chessboard[$x+$i][$y] != ""){
-                      echo "you cannot attack!!(X Position)<br>";
-                      break;
+                  for($i=1; $i< abs($diffX); $i++){
+                    if($_SESSION['chess'][0]->chessboard[$this->x - $i][$y] != ""){
+                      echo $x+$i;
+                      echo "case1";
+                      // $check_if_no_piece_r = false;
+                      // break;
+                      return false;
                     }
                   }
                 }else{
-                  for($i=0; $i<abs($diffX); $i++){
-                    if($_SESSION['chess'][0]->chessboard[$x-$i][$y] != ""){
-                      echo "You cannot attack(X Position)<br>!!!";
-                      break;
+                  for($i=1; $i<abs($diffX); $i++){
+                    if($_SESSION['chess'][0]->chessboard[$this->x + $i][$y] != ""){
+                      echo "case2";
+                      return false;
                     }
                   }
-                }
+                };
 
-                //CHECK Y AXIS
+            // $check_if_no_piece_c =
+                //CHECK C AXIS
                 if($ifDiffYIsPositive){
-                  for($i=0; $i<abs($diffY); $i++){
-                    if($_SESSION['chess'][0]->chessboard[$x][$y-$i] != ""){
-                      echo "you cannot attack!!(Y Position)<br>";
-                      break;
+                  for($i=1; $i<abs($diffY); $i++){
+                    if($_SESSION['chess'][0]->chessboard[$x][$this->y - $i] != ""){
+                      echo "case3";
+                      return false;
                     }
                   }
                 }else{
                   var_dump(abs($diffY));
-                  for($i=abs($diffY); $i>0; $i--){
-                    if($_SESSION['chess'][0]->chessboard[$x][$y-$i] != ""){
-                      echo "You cannot attack!!!(Y Position)<br>";
+                  for($i=1; $i<abs($diffY); $i++){
+                    if($_SESSION['chess'][0]->chessboard[$x][$this->y + $i] != ""){
+                      echo "case4";
+                      return false;
                     }
                   }
+                };
+
+
+            //check if no piece diagnotical  upperleft and down right
+            if($ifDiffXIsPositive && $diffY != 0){
+              for($i=1; $i< abs($diffX); $i++){
+                if($_SESSION['chess'][0]->chessboard[$this->x - $i][$y + $i] != ""){
+                  echo $x+$i;
+                  echo "case5";
+                  // $check_if_no_piece_r = false;
+                  // break;
+                  return false;
                 }
+              }
+            }elseif($diffY != 0){
+              for($i=1; $i<abs($diffX); $i++){
+                if($_SESSION['chess'][0]->chessboard[$this->x + $i][$y - $i] != ""){
+                  echo "case6";
+                  return false;
+                }
+              }
+            };
 
+            //check if no piece diagnotically
+            if($ifDiffYIsPositive && $diffX != 0){
+              for($i=1; $i<abs($diffY); $i++){
+                if($_SESSION['chess'][0]->chessboard[$this->x + $i][$this->y - $i] != ""){
+                  echo "case7";
+                  return false;
+                }
+              }
+            }elseif($diffX != 0){
+              var_dump(abs($diffY));
+              for($i=1; $i<abs($diffY); $i++){
+                if($_SESSION['chess'][0]->chessboard[$this->x - $i][$this->y + $i] != ""){
+                  echo "case8";
+                  return false;
+                }
+              }
+            };
 
-              //if another piece is near you and prevent you from attack opponents, return false
 
 
 
