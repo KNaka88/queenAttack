@@ -50,7 +50,6 @@ class Bishop
       if($ifDiffXIsPositive && $ifDiffYIsPositive){
         for($i=1; $i< abs($diffX); $i++){
           if($_SESSION['chess'][0]->chessboard[$this->x - $i][$this->y - $i] != ""){
-            echo "case1";
             return false;
           }
         }
@@ -58,7 +57,6 @@ class Bishop
         //CASE; $XPOS && Y negative
         for($i=1; $i<abs($diffX); $i++){
           if($_SESSION['chess'][0]->chessboard[$this->x - $i][$this->y + $i] != ""){
-            echo "case2";
             return false;
           }
         }
@@ -66,14 +64,12 @@ class Bishop
           //CASE: $Xnegative && YPositive
           for($i=1; $i<abs($diffX); $i++){
             if($_SESSION['chess'][0]->chessboard[$this->x + $i][$this->y - $i] != ""){
-              echo "case2";
               return false;
             }
           }
       }elseif(!$ifDiffXIsPositive && !$ifDiffYIsPositive){
         for($i=1; $i<abs($diffX); $i++){
           if($_SESSION['chess'][0]->chessboard[$this->x + $i][$this->y + $i] != ""){
-            echo "case2";
             return false;
           }
         }
