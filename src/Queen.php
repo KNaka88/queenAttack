@@ -63,39 +63,32 @@
 
 
             // $check_if_no_piece_r =
-                if($ifDiffXIsPositive){
+
+                if($ifDiffXIsPositive && $diffY == 0){
                   for($i=1; $i< abs($diffX); $i++){
                     if($_SESSION['chess'][0]->chessboard[$this->x - $i][$y] != ""){
-                      echo $x+$i;
-                      echo "case1";
-                      // $check_if_no_piece_r = false;
-                      // break;
+                      echo "Upper";
                       return false;
                     }
                   }
-                }else{
+                }elseif(!$ifDiffXIsPositive && $diffY == 0){
                   for($i=1; $i<abs($diffX); $i++){
                     if($_SESSION['chess'][0]->chessboard[$this->x + $i][$y] != ""){
-                      echo "case2";
+                      echo "Down";
                       return false;
                     }
                   }
-                };
-
-            // $check_if_no_piece_c =
-                //CHECK C AXIS
-                if($ifDiffYIsPositive){
+                }elseif($ifDiffYIsPositive && $diffX == 0 ){
                   for($i=1; $i<abs($diffY); $i++){
                     if($_SESSION['chess'][0]->chessboard[$x][$this->y - $i] != ""){
-                      echo "case3";
+                      echo "Left";
                       return false;
                     }
                   }
-                }else{
-                  var_dump(abs($diffY));
+                }elseif(!$ifDiffYIsPositive && $diffX == 0){
                   for($i=1; $i<abs($diffY); $i++){
                     if($_SESSION['chess'][0]->chessboard[$x][$this->y + $i] != ""){
-                      echo "case4";
+                      echo "Right";
                       return false;
                     }
                   }
@@ -103,38 +96,31 @@
 
 
             //check if no piece diagnotical  upperleft and down right
-            if($ifDiffXIsPositive && $diffY != 0){
-              for($i=1; $i< abs($diffX); $i++){
-                if($_SESSION['chess'][0]->chessboard[$this->x - $i][$this->y + $i] != ""){
-                  echo $x+$i;
-                  echo "case5";
-                  // $check_if_no_piece_r = false;
-                  // break;
+            if($ifDiffYIsPositive && $ifDiffXIsPositive && $diffX != 0 && $diffY != 0){
+              for($i=1; $i<abs($diffY); $i++){
+                if($_SESSION['chess'][0]->chessboard[$this->x - $i][$this->y - $i] != ""){
+                  echo "UpperLeft";
                   return false;
                 }
               }
-            }elseif($diffY != 0){
+            }elseif($ifDiffYIsPositive && !$ifDiffXIsPositive && $diffX != 0 && $diffY != 0){
               for($i=1; $i<abs($diffX); $i++){
                 if($_SESSION['chess'][0]->chessboard[$this->x + $i][$this->y - $i] != ""){
-                  echo "case6";
+                  echo "DownLeft";
                   return false;
                 }
               }
-            };
-
-            //check if no piece diagnotically
-            if($ifDiffYIsPositive && $diffX != 0){
-              for($i=1; $i<abs($diffY); $i++){
-                if($_SESSION['chess'][0]->chessboard[$this->x + $i][$this->y - $i] != ""){
-                  echo "case7";
-                  return false;
-                }
-              }
-            }elseif($diffX != 0){
-              var_dump(abs($diffY));
+            }elseif(!$ifDiffYIsPositive && $ifDiffXIsPositive && $diffX != 0 && $diffY != 0){
               for($i=1; $i<abs($diffY); $i++){
                 if($_SESSION['chess'][0]->chessboard[$this->x - $i][$this->y + $i] != ""){
-                  echo "case8";
+                  echo "UpperRight";
+                  return false;
+                }
+              }
+            }elseif(!$ifDiffYIsPositive && !$ifDiffXIsPositive && $diffX != 0 && $diffY != 0){
+              for($i=1; $i<abs($diffY); $i++){
+                if($_SESSION['chess'][0]->chessboard[$this->x + $i][$this->y + $i] != ""){
+                  echo "DownRight";
                   return false;
                 }
               }
