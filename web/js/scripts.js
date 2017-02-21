@@ -1,9 +1,13 @@
 $(function(){
 
+
   //SELECT
   $(".piece").click(function(){
+
+    var player = $("#player").text().toLowerCase();
+
     if($("td").hasClass("piece-selected") && $("td").hasClass("position-selected")){
-      if($(this).children().hasClass("player1")){
+      if($(this).children().hasClass(player)){
         console.log("case1");
         $(".position-selected").css("border", "2px solid black");
         $(".piece-selected").css("border", "2px solid black");
@@ -22,7 +26,7 @@ $(function(){
     }
 
     //2. If player ALREADY selected piece and NOT choose any position:
-    if($("td").hasClass("piece-selected") && !($(this).children().hasClass("player1"))){
+    if($("td").hasClass("piece-selected") && !($(this).children().hasClass(player))){
       console.log("case3");
       $(this).css("border", "4px solid red");
       $(this).addClass("position-selected");
@@ -35,7 +39,7 @@ $(function(){
       $(this).addClass("piece-selected");
     }
     //1. no piece or positions are selected (beginning)
-    else if ($(this).children().hasClass("player1")){
+    else if ($(this).children().hasClass(player)){
       console.log("case5");
       $(this).css("border", "4px solid green");
       $(this).addClass("piece-selected");
@@ -59,5 +63,7 @@ $(function(){
       $("#move_atck_r").val(moveAtckRPos);
       $("#move_atck_c").val(moveAtckCPos);
     }
+
+
   });
 });

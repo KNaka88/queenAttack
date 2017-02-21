@@ -1,3 +1,6 @@
+
+
+
 td {
     text-align: center;
     border: 2px solid black;
@@ -16,5 +19,12 @@ tr:nth-child(odd) td:nth-child(even){
 }
 
 #this_r, #this_c, #move_atck_r, #move_atck_c {
-  /*display: none;*/
+  display: none;
+}
+
+button {
+  display: block;
+  width: 480px;
+  margin-top: 1%;
+  margin-left: auto;
 }

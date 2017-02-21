@@ -9,6 +9,8 @@
     class ChessBoard
     {
         public $chessboard;
+        public $playerturn;
+        public $switch_player;
 
         function __construct()
         {
@@ -20,10 +22,31 @@
                     $this->chessboard[$row][$col] = "";
                 }
             }
+            $this->playerturn = "Player1";
+            $this->switch_player = true;
         }
 
         function setPiece($x, $y, $piece){
             $this->chessboard[$x][$y] = $piece;
+        }
+
+        function setPlayerTurn($new_playerturn){
+            $this->playerturn = $new_playerturn;
+        }
+
+        function getPlayerturn(){
+            return $this->playerturn;
+        }
+
+        function getSwitchplayer (){
+          return $this->switch_player;
+        }
+
+        function switchPlayer(){
+          //Player1: true
+          //Player2: false
+          $this->switch_player = !($this->switch_player);
+          return $this->switch_player;
         }
 
         function initializeBoard(){
@@ -74,6 +97,7 @@
         }
 
         function drawBoard (){
+          
             echo "<table>";
             for($row=0; $row<8; $row++){
                 echo "<tr id='row$row'>";
@@ -88,10 +112,6 @@
             }
             echo "</table>";
         }
-
-
-
-
 
         static function save($chessboard){
           $_SESSION["chess"] = [];

@@ -48,11 +48,30 @@
             $check = $load[0]->chessboard[$r_pos][$c_pos]->canAttack($atck_r, $atck_c);
 
             if($pawn_can_move || $check){
+
+              //Check if king is dead or not
+              if(!empty($load[0]->chessboard[$atck_r][$atck_c])){
+                  $killed_piece = get_class($load[0]->chessboard[$atck_r][$atck_c]);
+                  //if king is dead, change the display
+                  if($killed_piece == "King"){
+                    $load[0]->setPlayerTurn("GAME OVER");
+                    return $app['twig']->render('chessboard.html.twig', array('board'=>$_SESSION['chess']));
+                  }
+              }
+              if($load[0]->switchPlayer()){
+                  //if true-> player1
+                  $load[0]->setPlayerTurn("Player1");
+              }else{
+                  //if false-> player2
+                  $load[0]->setPlayerTurn("Player2");
+              }
+
               $load[0]->chessboard[$atck_r][$atck_c] = $load[0]->chessboard[$r_pos][$c_pos];
               $load[0]->chessboard[$atck_r][$atck_c]->setR($atck_r);
               $load[0]->chessboard[$atck_r][$atck_c]->setC($atck_c);
               $load[0]->chessboard[$r_pos][$c_pos] = "";
             }
+
         }
 
         return $app['twig']->render('chessboard.html.twig', array('board'=>$_SESSION['chess']));

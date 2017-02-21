@@ -8,24 +8,27 @@
     <title>Chess Game</title>
 </head>
 <body>
-    <h1>Chess Game</h1>
-    <div class="container chess-board">
-        {{ board[0].drawBoard }}
-    </div>
+    <div class="container">
 
-    <form id="attack-form" action="/attack" method="post">
 
-        <label for='this_r'>This_R</label>
-        <input class='btn' id='this_r' name='this_r'></input>
-        <label for='this_c'>This_C</label>
-        <input class='btn' id='this_c' name='this_c'></input>
+      <div class="container chess-board">
+        <h1>Chess Game</h1>
+        <h3 id='player'>{{ board[0].getPlayerturn }}</h3>
+          {{ board[0].drawBoard }}
+          <!-- Hidden Form -->
+          <div class='form-group'>
+          <form id="attack-form" action="/attack" method="post">
+              <input class='btn' id='this_r' name='this_r'></input>
+              <input class='btn' id='this_c' name='this_c'></input>
+              <input class='btn' id='move_atck_r' name='move_atck_r'></input>
+              <input class='btn' id='move_atck_c' name='move_atck_c'></input>
+              <button type='submit' class='btn btn-danger form-congrol'>Attack</button>
+          </form>
+        </div>
+        </div>
+      </div>
 
-        <label for='move_atck_r'>Move ATCK R</label>
-        <input class='btn' id='move_atck_r' name='move_atck_r'></input>
-        <label for='move_atck_c'>Move ATCK C</label>
-        <input class='btn' id='move_atck_c' name='move_atck_c'></input>
-      <button type='submit' class='btn btn-danger'>Attack</button>
-    </form>
+
 
 </body>
 </html>

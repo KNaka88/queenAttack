@@ -5,7 +5,6 @@
         private $r;
         private $c;
         private $symbol;
-        private $alive;
         private $player;
 
         function __construct($r, $c, $symbol, $player)
@@ -13,7 +12,6 @@
             $this->r = $r;
             $this->c = $c;
             $this->symbol = $symbol;
-            $this->alive = true;
             $this->player = $player;
         }
 
@@ -29,10 +27,6 @@
             return $this->symbol;
         }
 
-        function getAlive(){
-            return $this->alive;
-        }
-
         function getThisPiece(){
             return $this;
         }
@@ -43,10 +37,6 @@
 
         function setC($new_c){
             $this->c = $new_c;
-        }
-
-        function setAlive($alive){ //if this piece died, change to false;
-            $this->alive = $alive;
         }
 
         function pawnCanMove($r, $c){
@@ -61,34 +51,31 @@
             $ifDiffRIsPositive = ($diffR > 0); //if diff is positive val: true, negative: false
             $ifDiffCIsPositive = ($diffC > 0); //if diff is positive val: true, negative: false
 
-
-            // $check_if_no_piece_r =
-
                 if($ifDiffRIsPositive && $diffC == 0){
                   for($i=1; $i< abs($diffR); $i++){
                     if($_SESSION['chess'][0]->chessboard[$this->r - $i][$c] != ""){
-                      echo "Upper";
+                      // echo "Upper";
                       return false;
                     }
                   }
                 }elseif(!$ifDiffRIsPositive && $diffC == 0){
                   for($i=1; $i<abs($diffR); $i++){
                     if($_SESSION['chess'][0]->chessboard[$this->r + $i][$c] != ""){
-                      echo "Down";
+                      // echo "Down";
                       return false;
                     }
                   }
                 }elseif($ifDiffCIsPositive && $diffR == 0 ){
                   for($i=1; $i<abs($diffC); $i++){
                     if($_SESSION['chess'][0]->chessboard[$r][$this->c - $i] != ""){
-                      echo "Left";
+                      // echo "Left";
                       return false;
                     }
                   }
                 }elseif(!$ifDiffCIsPositive && $diffR == 0){
                   for($i=1; $i<abs($diffC); $i++){
                     if($_SESSION['chess'][0]->chessboard[$r][$this->c + $i] != ""){
-                      echo "Right";
+                      // echo "Right";
                       return false;
                     }
                   }
@@ -99,36 +86,32 @@
             if($ifDiffCIsPositive && $ifDiffRIsPositive && $diffR != 0 && $diffC != 0){
               for($i=1; $i<abs($diffC); $i++){
                 if($_SESSION['chess'][0]->chessboard[$this->r - $i][$this->c - $i] != ""){
-                  echo "UpperLeft";
+                  // echo "UpperLeft";
                   return false;
                 }
               }
             }elseif($ifDiffCIsPositive && !$ifDiffRIsPositive && $diffR != 0 && $diffC != 0){
               for($i=1; $i<abs($diffR); $i++){
                 if($_SESSION['chess'][0]->chessboard[$this->r + $i][$this->c - $i] != ""){
-                  echo "DownLeft";
+                  // echo "DownLeft";
                   return false;
                 }
               }
             }elseif(!$ifDiffCIsPositive && $ifDiffRIsPositive && $diffR != 0 && $diffC != 0){
               for($i=1; $i<abs($diffC); $i++){
                 if($_SESSION['chess'][0]->chessboard[$this->r - $i][$this->c + $i] != ""){
-                  echo "UpperRight";
+                  // echo "UpperRight";
                   return false;
                 }
               }
             }elseif(!$ifDiffCIsPositive && !$ifDiffRIsPositive && $diffR != 0 && $diffC != 0){
               for($i=1; $i<abs($diffC); $i++){
                 if($_SESSION['chess'][0]->chessboard[$this->r + $i][$this->c + $i] != ""){
-                  echo "DownRight";
+                  // echo "DownRight";
                   return false;
                 }
               }
             };
-
-
-
-
 
                 //TRUE: there is piece
                 $not_this_r_position = ($this->r != $r);

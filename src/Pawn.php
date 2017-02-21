@@ -6,14 +6,12 @@
         private $c;
         private $symbol;
         private $is_moved;
-        private $alive;
 
         function __construct($r, $c, $symbol, $player)
         {
             $this->r = $r;
             $this->c = $c;
             $this->symbol = $symbol;
-            $this->alive = true;
             $this->is_moved = false;
             $this->player = $player;
         }
@@ -35,10 +33,6 @@
           return $this->is_moved;
         }
 
-        function getAlive(){
-            return $this->alive;
-        }
-
         function setR($new_r){
             $this->r = $new_r;
         }
@@ -50,11 +44,6 @@
         function setIsMoved($new_is_moved){ //pass either true or false
           $this->is_moved = $new_is_moved;
         }
-
-        function setAlive($alive){ //if this piece died, change to false;
-            $this->alive = $alive;
-        }
-
 
         function pawnCanMove($r, $c)
         {
@@ -72,7 +61,6 @@
           //if another piece is located at forward, return false;
           if($not_outbound){
             $no_one_forward = ($_SESSION['chess'][0]->chessboard[$this->r + $direction][$this->c] == '');
-            var_dump($no_one_forward);
           }
 
           //if true: Pawn already moved
@@ -88,8 +76,6 @@
         function canAttack($r, $c)
         {
             $check_diagonally_forward = ($this->r + 1 == $r && $this->c + 1 == $c) || ($this->r - 1 == $r && $this->c + 1 == $c) || ($this->r - 1 == $r && $this->c - 1 == $c) || ($this->r + 1 == $r && $this->c - 1 == $c);
-
-            var_dump($check_diagonally_forward);
             if($check_diagonally_forward && $_SESSION['chess'][0]->chessboard[$r][$c] != ''){
                 return true;
             }else{
