@@ -1,10 +1,10 @@
 <?php
-    require_once "Queen.php";
     require_once "Rook.php";
     require_once "Bishop.php";
     require_once "King.php";
     require_once "Pawn.php";
     require_once "Knight.php";
+    require_once "Queen.php";
 
     class ChessBoard
     {
@@ -26,8 +26,8 @@
             $this->switch_player = true;
         }
 
-        function setPiece($x, $y, $piece){
-            $this->chessboard[$x][$y] = $piece;
+        function setPiece($r, $c, $piece){
+            $this->chessboard[$r][$c] = $piece;
         }
 
         function setPlayerTurn($new_playerturn){
@@ -66,7 +66,6 @@
             $black_pawn = "<img class='player2' src='img/black-pawn.svg' alt='black-pawn'>";
             $black_rook = "<img class='player2' src='img/black-rook.svg' alt='black-rook'>";
             $black_bishop = "<img class='player2' src='img/black-bishop.svg' alt='black-bishop'>";
-
 
 
             //Initialize Player1 Chess Piece
@@ -117,6 +116,4 @@
           $_SESSION["chess"] = [];
           array_push($_SESSION["chess"], $chessboard);
         }
-
-
     }

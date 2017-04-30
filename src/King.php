@@ -1,61 +1,24 @@
 <?php
+    require_once __DIR__."/Piece.php";
 
-    class King
+    class King extends Piece
     {
-        private $x;
-        private $y;
-        private $symbol;
-        private $alive;
 
-        function __construct($x, $y, $symbol, $player)
-        {
-            $this->x = $x;
-            $this->y = $y;
-            $this->symbol = $symbol;
-            $this->alive = true;
-            $this->player = $player;
-        }
-
-        function getR(){
-            return $this->x;
-        }
-
-        function getC(){
-            return $this->y;
-        }
-
-        function getSymbol(){
-            return $this->symbol;
-        }
-
+        //If King was killed Gameover
         function getAlive(){
             return $this->alive;
-        }
-
-        function setR($new_x){
-            $this->x = $new_x;
-        }
-
-        function setC($new_y){
-            $this->y = $new_y;
         }
 
         function setAlive($alive){ //if this piece died, change to false;
             $this->alive = $alive;
         }
 
-        function pawnCanMove($r, $c){
-            return false;
-        }
-
-
-
-        function canAttack($x, $y)
+        function canAttack($r, $c)
         {
           //check true or false
-          $check_horizontal = (($this->x + 1 == $x || $this->x - 1 == $x) && $this->y == $y);
-          $check_vertical = (($this->y + 1 == $y || $this->y - 1 == $y) && $this->x == $x);
-          $check_diagonal = ($this->x + 1 == $x || $this->x - 1 == $x) && ($this->y + 1 == $y || $this->y - 1 == $y);
+          $check_horizontal = (($this->r + 1 == $r || $this->r - 1 == $r) && $this->c == $c);
+          $check_vertical = (($this->c + 1 == $c || $this->c - 1 == $c) && $this->r == $r);
+          $check_diagonal = ($this->r + 1 == $r || $this->r - 1 == $r) && ($this->c + 1 == $c || $this->c - 1 == $c);
 
             if($check_horizontal || $check_vertical || $check_diagonal){
                 return true;

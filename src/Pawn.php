@@ -1,44 +1,12 @@
 <?php
+    require_once __DIR__."/Piece.php";
 
-    class Pawn
+    class Pawn extends Piece
     {
-        private $r;
-        private $c;
-        private $symbol;
         private $is_moved;
-
-        function __construct($r, $c, $symbol, $player)
-        {
-            $this->r = $r;
-            $this->c = $c;
-            $this->symbol = $symbol;
-            $this->is_moved = false;
-            $this->player = $player;
-        }
-
-
-        function getR(){
-            return $this->r;
-        }
-
-        function getC(){
-            return $this->c;
-        }
-
-        function getSymbol(){
-            return $this->symbol;
-        }
 
         function getIsMoved(){
           return $this->is_moved;
-        }
-
-        function setR($new_r){
-            $this->r = $new_r;
-        }
-
-        function setC($new_c){
-            $this->c = $new_c;
         }
 
         function setIsMoved($new_is_moved){ //pass either true or false
