@@ -1,6 +1,4 @@
-#Koji Nakagawa
-
-#### Chess Game
+# Chess Game
 
 #### By Koji Nakagawa
 
