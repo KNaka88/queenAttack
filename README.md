@@ -5,17 +5,22 @@
 ## Description
 * This website offer chess game
 
+![](/web/img/sampleimage.png)
+
+
+## Prerequisites
+You will need the following things properly installed on your computer.
+
+* [Git](https://git-scm.com/)
+* [Composer](https://getcomposer.org/)
+
 ## Setup/Installation Requirements
 1. Clone this repository.
-2. Install Composer to your computer.
-3. Install the Composer at the top level of project directory to add dependencies to this projects.
-* if you are not sure how to install composer and add dependency, [see this link](https://www.learnhowtoprogram.com/php/object-oriented-php/composer).
+2. `composer install` at the top level of project directory
+3. on the web folder, `php -S localhost:8000`
+4. Open URL: http://localhost:8000/
 
-
-### Start your server inside of web folder, using localhost:8000
-* Open URL: http://localhost:8000/
-* if you are not sure how to setup localhost server, [see this link](https://www.learnhowtoprogram.com/php/php-basics/meet-the-server).
-
+if you are not sure how to setup localhost server, [see this link](https://www.learnhowtoprogram.com/php/php-basics/meet-the-server).
 
 ## Known Bugs
 * I confirmed this program is successfully running under the PHP 5.6.16, using Mac OS X 10.11.6.
