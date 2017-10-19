@@ -1,77 +1,42 @@
 <?php
-class Rook
+require_once __DIR__."/Piece.php";
+
+class Rook extends Piece
 {
-    private $x;
-    private $y;
-    private $symbol;
-
-    function __construct($x, $y, $symbol, $player)
-    {
-        $this->x = $x;
-        $this->y = $y;
-        $this->symbol = $symbol;
-        $this->player = $player;
-    }
-
-    function getR(){
-        return $this->x;
-    }
-
-    function getC(){
-        return $this->y;
-    }
-
-    function getSymbol(){
-        return $this->symbol;
-    }
-
-    function setR($new_x){
-        $this->x = $new_x;
-    }
-
-    function setC($new_y){
-        $this->y = $new_y;
-    }
-
-    function pawnCanMove($r, $c){
-        return false;
-    }
-
-    function canAttack($x, $y)
+    function canAttack($r, $c)
     {
 
-        $diffX = $this->x - $x;
-        $diffY = $this->y - $y;
-        $ifDiffXIsPositive = ($diffX > 0); //if diff is positive val: true, negative: false
-        $ifDiffYIsPositive = ($diffY > 0); //if diff is positive val: true, negative: false
+        $diffR = $this->r - $r;
+        $diffC = $this->c - $c;
+        $ifDiffRIsPositive = ($diffR > 0); //if diff is positive val: true, negative: false
+        $ifDiffCIsPositive = ($diffC > 0); //if diff is positive val: true, negative: false
 
-            if($ifDiffXIsPositive){
-              for($i=1; $i< abs($diffX); $i++){
-                if($_SESSION['chess'][0]->chessboard[$this->x - $i][$y] != ""){
+            if($ifDiffRIsPositive){
+              for($i=1; $i< abs($diffR); $i++){
+                if($_SESSION['chess'][0]->chessboard[$this->r - $i][$c] != ""){
                   // $check_if_no_piece_r = false;
                   // break;
                   return false;
                 }
               }
             }else{
-              for($i=1; $i<abs($diffX); $i++){
-                if($_SESSION['chess'][0]->chessboard[$this->x + $i][$y] != ""){
+              for($i=1; $i<abs($diffR); $i++){
+                if($_SESSION['chess'][0]->chessboard[$this->r + $i][$c] != ""){
                   return false;
                 }
               }
             };
 
             //CHECK C AXIS
-            if($ifDiffYIsPositive){
-              for($i=1; $i<abs($diffY); $i++){
-                if($_SESSION['chess'][0]->chessboard[$x][$this->y - $i] != ""){
+            if($ifDiffCIsPositive){
+              for($i=1; $i<abs($diffC); $i++){
+                if($_SESSION['chess'][0]->chessboard[$r][$this->c - $i] != ""){
                   return false;
                 }
               }
             }else{
-              var_dump(abs($diffY));
-              for($i=1; $i<abs($diffY); $i++){
-                if($_SESSION['chess'][0]->chessboard[$x][$this->y + $i] != ""){
+              for($i=1; $i<abs($diffC); $i++){
+                if($_SESSION['chess'][0]->chessboard[$r][$this->c + $i] != ""){
                   return false;
                 }
               }
@@ -79,9 +44,9 @@ class Rook
 
 
 
-        if($this->x == $x){
+        if($this->r == $r){
             return true;
-        }elseif($this->y == $y){
+        }elseif($this->c == $c){
             return true;
         }else{
             return false;
